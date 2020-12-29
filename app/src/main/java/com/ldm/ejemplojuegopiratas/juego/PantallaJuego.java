@@ -45,8 +45,13 @@ public class PantallaJuego extends Pantalla {
     }
 
     private void updateReady(List<TouchEvent> touchEvents) {
-        if(touchEvents.size() > 0)
+        if(touchEvents.size() > 0){
+            if(Configuraciones.sonidoHabilitado) {
+                Assets.ambiente.play();
+                Assets.pulsar.play(1);
+            }
             estado = EstadoJuego.Ejecutandose;
+        }
     }
 
     private void updateRunning(List<TouchEvent> touchEvents, float deltaTime) {
@@ -55,8 +60,10 @@ public class PantallaJuego extends Pantalla {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
                 if(event.x < 64 && event.y < 64) {
-                    if(Configuraciones.sonidoHabilitado)
+                    if(Configuraciones.sonidoHabilitado){
+                        Assets.ambiente.pause();
                         Assets.pulsar.play(1);
+                    }
                     estado = EstadoJuego.Pausado;
                     return;
                 }
@@ -73,8 +80,10 @@ public class PantallaJuego extends Pantalla {
 
         mundo.update(deltaTime);
         if(mundo.finalJuego) {
-            if(Configuraciones.sonidoHabilitado)
+            if(Configuraciones.sonidoHabilitado){
+                Assets.ambiente.stop();
                 Assets.derrota.play(1);
+            }
             estado = EstadoJuego.FinJuego;
         }
         if(antiguaPuntuacion != mundo.puntuacion) {
@@ -87,19 +96,24 @@ public class PantallaJuego extends Pantalla {
 
     private void updatePaused(List<TouchEvent> touchEvents) {
         int len = touchEvents.size();
+        Assets.ambiente.pause();
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
                 if(event.x > 80 && event.x <= 240) {
                     if(event.y > 100 && event.y <= 148) {
-                        if(Configuraciones.sonidoHabilitado)
+                        if(Configuraciones.sonidoHabilitado){
                             Assets.pulsar.play(1);
+                            Assets.ambiente.play();
+                        }
                         estado = EstadoJuego.Ejecutandose;
                         return;
                     }
                     if(event.y > 148 && event.y < 196) {
-                        if(Configuraciones.sonidoHabilitado)
+                        if(Configuraciones.sonidoHabilitado) {
                             Assets.pulsar.play(1);
+                            Assets.ambiente.stop();
+                        }
                         juego.setScreen(new MainMenuScreen(juego));
                         return;
                     }
@@ -115,8 +129,10 @@ public class PantallaJuego extends Pantalla {
             if(event.type == TouchEvent.TOUCH_UP) {
                 if(event.x >= 128 && event.x <= 192 &&
                         event.y >= 200 && event.y <= 264) {
-                    if(Configuraciones.sonidoHabilitado)
+                    if(Configuraciones.sonidoHabilitado){
                         Assets.pulsar.play(1);
+                        Assets.ambiente.stop();
+                    }
                     juego.setScreen(new MainMenuScreen(juego));
                     return;
                 }
