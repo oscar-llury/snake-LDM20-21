@@ -173,22 +173,24 @@ public class PantallaJuego extends Pantalla {
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
             Tripulacion part = jollyroger.partes.get(i);
-            x = part.x * 32;
-            y = part.y * 32;
+            x = part.getX() * 32;
+            y = part.getY() * 32;
             Pixmap virusPixmap = null;
-            if(part.tipo== Botin.TIPO_1)
+
+            tipoVirus = part.getTipo();
+            if(tipoVirus == Botin.TIPO_1)
                 virusPixmap = Assets.botin1;
-            else if(part.tipo == Botin.TIPO_2)
+            else if(tipoVirus == Botin.TIPO_2)
                 virusPixmap = Assets.botin2;
-            else if(part.tipo == Botin.TIPO_3)
+            else if(tipoVirus == Botin.TIPO_3)
                 virusPixmap = Assets.botin3;
-            else if(part.tipo== Botin.TIPO_4)
+            else if(tipoVirus == Botin.TIPO_4)
                 virusPixmap = Assets.botin4;
-            else if(part.tipo == Botin.TIPO_5)
+            else if(tipoVirus == Botin.TIPO_5)
                 virusPixmap = Assets.botin5;
-            else if(part.tipo == Botin.TIPO_6)
+            else if(tipoVirus == Botin.TIPO_6)
                 virusPixmap = Assets.botin6;
-            else if(part.tipo== Botin.TIPO_7)
+            else if(tipoVirus == Botin.TIPO_7)
                 virusPixmap = Assets.botin7;
             g.drawPixmap(virusPixmap, x, y);
         }
@@ -202,8 +204,8 @@ public class PantallaJuego extends Pantalla {
             headPixmap = Assets.barcoabajo;
         if(jollyroger.direccion == JollyRoger.DERECHA)
             headPixmap = Assets.barcoderecha;
-        x = head.x * 32 + 16;
-        y = head.y * 32 + 16;
+        x = head.getX() * 32 + 16;
+        y = head.getY() * 32 + 16;
         g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
     }
 

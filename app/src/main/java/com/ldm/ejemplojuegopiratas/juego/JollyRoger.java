@@ -33,7 +33,7 @@ public class JollyRoger {
 
     public void abordaje(int tipo) {
         Tripulacion end = partes.get(partes.size()-1);
-        partes.add(new Tripulacion(end.x, end.y,tipo));
+        partes.add(new Tripulacion(end.getX(), end.getY(),tipo));
     }
 
     public void avance() {
@@ -43,27 +43,27 @@ public class JollyRoger {
         for(int i = len; i > 0; i--) {
             Tripulacion antes = partes.get(i-1);
             Tripulacion parte = partes.get(i);
-            parte.x = antes.x;
-            parte.y = antes.y;
+            parte.setX(antes.getX());
+            parte.setY(antes.getY());
         }
 
         if(direccion == ARRIBA)
-            barco.y -= 1;
+            barco.setY(barco.getY() - 1);
         if(direccion == IZQUIERDA)
-            barco.x -= 1;
+            barco.setX(barco.getX() - 1);
         if(direccion == ABAJO)
-            barco.y += 1;
+            barco.setY(barco.getY() + 1);
         if(direccion == DERECHA)
-            barco.x += 1;
+            barco.setX(barco.getX() + 1);
 
-        if(barco.x < 0)
-            barco.x = 9;
-        if(barco.x > 9)
-            barco.x = 0;
-        if(barco.y < 0)
-            barco.y = 12;
-        if(barco.y > 12)
-            barco.y = 0;
+        if(barco.getX() < 0)
+            barco.setX(9);
+        if(barco.getX() > 9)
+            barco.setX(0);
+        if(barco.getY() < 0)
+            barco.setY(12);
+        if(barco.getY() > 12)
+            barco.setY(0);
     }
 
     public boolean comprobarChoque() {
@@ -71,7 +71,7 @@ public class JollyRoger {
         Tripulacion barco = partes.get(0);
         for(int i = 1; i < len; i++) {
             Tripulacion parte = partes.get(i);
-            if(parte.x == barco.x && parte.y == barco.y)
+            if(parte.getX() == barco.getX() && parte.getY() == barco.getY())
                 return true;
         }
         return false;

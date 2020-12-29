@@ -8,7 +8,7 @@ public class Botin {
     public static final int TIPO_5 = 4;
     public static final int TIPO_6 = 5;
     public static final int TIPO_7 = 6;
-    
+
     private int x, y, tipo, valor;
 
     public Botin(int x, int y, int tipo) {

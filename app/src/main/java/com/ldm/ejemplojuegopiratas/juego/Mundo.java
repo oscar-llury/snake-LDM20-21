@@ -34,7 +34,7 @@ public class Mundo {
         int len = jollyroger.partes.size();
         for (int i = 0; i < len; i++) {
             Tripulacion parte = jollyroger.partes.get(i);
-            campos[parte.x][parte.y] = true;
+            campos[parte.getX()][parte.getY()] = true;
         }
 
         int botinX = random.nextInt(MUNDO_ANCHO);
@@ -70,7 +70,7 @@ public class Mundo {
             }
 
             Tripulacion head = jollyroger.partes.get(0);
-            if (head.x == botin.getX() && head.y == botin.getY()) {
+            if (head.getX() == botin.getX() && head.getY() == botin.getY()) {
                 puntuacion += botin.getValor();
                 jollyroger.abordaje(botin.getTipo());
                 if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
