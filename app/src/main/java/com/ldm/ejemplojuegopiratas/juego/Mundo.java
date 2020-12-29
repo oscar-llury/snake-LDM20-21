@@ -70,9 +70,9 @@ public class Mundo {
             }
 
             Tripulacion head = jollyroger.partes.get(0);
-            if (head.x == botin.x && head.y == botin.y) {
-                puntuacion += INCREMENTO_PUNTUACION;
-                jollyroger.abordaje(botin.tipo);
+            if (head.x == botin.getX() && head.y == botin.getY()) {
+                puntuacion += botin.getValor();
+                jollyroger.abordaje(botin.getTipo());
                 if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
                     finalJuego = true;
                     return;

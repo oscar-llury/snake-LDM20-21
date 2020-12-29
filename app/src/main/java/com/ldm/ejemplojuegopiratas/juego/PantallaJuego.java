@@ -151,23 +151,24 @@ public class PantallaJuego extends Pantalla {
         Botin botin = mundo.botin;
 
         Pixmap stainPixmap = null;
-
-        if(botin.tipo== Botin.TIPO_1)
+        int tipoVirus = botin.getTipo();
+        if(tipoVirus == Botin.TIPO_1)
             stainPixmap = Assets.botin1;
-        else if(botin.tipo == Botin.TIPO_2)
+        else if(tipoVirus == Botin.TIPO_2)
             stainPixmap = Assets.botin2;
-        else if(botin.tipo == Botin.TIPO_3)
+        else if(tipoVirus == Botin.TIPO_3)
             stainPixmap = Assets.botin3;
-        else if(botin.tipo== Botin.TIPO_4)
+        else if(tipoVirus == Botin.TIPO_4)
             stainPixmap = Assets.botin4;
-        else if(botin.tipo == Botin.TIPO_5)
+        else if(tipoVirus == Botin.TIPO_5)
             stainPixmap = Assets.botin5;
-        else if(botin.tipo == Botin.TIPO_6)
+        else if(tipoVirus == Botin.TIPO_6)
             stainPixmap = Assets.botin6;
-        else if(botin.tipo== Botin.TIPO_7)
+        else if(tipoVirus == Botin.TIPO_7)
             stainPixmap = Assets.botin7;
-        int x = botin.x * 32;
-        int y = botin.y * 32;
+
+        int x = botin.getX() * 32;
+        int y = botin.getY() * 32;
         g.drawPixmap(stainPixmap, x, y);
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
