@@ -9,14 +9,14 @@ public class JollyRoger {
     public static final int ABAJO = 2;
     public static final int DERECHA = 3;
 
-    public List<Tripulacion> partes = new ArrayList<Tripulacion>();
+    public List<Tripulacion> partes = new ArrayList<>();
     public int direccion;
 
     public JollyRoger() {
         direccion = ARRIBA;
-        partes.add(new Tripulacion(5, 6));
-        partes.add(new Tripulacion(5, 7));
-        partes.add(new Tripulacion(5, 8));
+        partes.add(new Tripulacion(5, 6,0));
+        partes.add(new Tripulacion(5, 7,0));
+        partes.add(new Tripulacion(5, 8,0));
     }
 
     public void girarIzquierda() {
@@ -31,9 +31,9 @@ public class JollyRoger {
             direccion = DERECHA;
     }
 
-    public void abordaje() {
+    public void abordaje(int tipo) {
         Tripulacion end = partes.get(partes.size()-1);
-        partes.add(new Tripulacion(end.x, end.y));
+        partes.add(new Tripulacion(end.x, end.y,tipo));
     }
 
     public void avance() {

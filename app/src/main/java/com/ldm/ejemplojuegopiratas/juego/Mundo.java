@@ -51,7 +51,7 @@ public class Mundo {
                 }
             }
         }
-        botin = new Botin(botinX, botinY, random.nextInt(3));
+        botin = new Botin(botinX, botinY, random.nextInt(7));
     }
 
     public void update(float deltaTime) {
@@ -72,7 +72,7 @@ public class Mundo {
             Tripulacion head = jollyroger.partes.get(0);
             if (head.x == botin.x && head.y == botin.y) {
                 puntuacion += INCREMENTO_PUNTUACION;
-                jollyroger.abordaje();
+                jollyroger.abordaje(botin.tipo);
                 if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
                     finalJuego = true;
                     return;

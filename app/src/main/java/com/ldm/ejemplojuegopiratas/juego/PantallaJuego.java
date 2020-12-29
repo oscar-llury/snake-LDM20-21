@@ -150,29 +150,51 @@ public class PantallaJuego extends Pantalla {
         Tripulacion head = jollyroger.partes.get(0);
         Botin botin = mundo.botin;
 
-
         Pixmap stainPixmap = null;
+
         if(botin.tipo== Botin.TIPO_1)
             stainPixmap = Assets.botin1;
-        if(botin.tipo == Botin.TIPO_2)
+        else if(botin.tipo == Botin.TIPO_2)
             stainPixmap = Assets.botin2;
-        if(botin.tipo == Botin.TIPO_3)
+        else if(botin.tipo == Botin.TIPO_3)
             stainPixmap = Assets.botin3;
+        else if(botin.tipo== Botin.TIPO_4)
+            stainPixmap = Assets.botin4;
+        else if(botin.tipo == Botin.TIPO_5)
+            stainPixmap = Assets.botin5;
+        else if(botin.tipo == Botin.TIPO_6)
+            stainPixmap = Assets.botin6;
+        else if(botin.tipo== Botin.TIPO_7)
+            stainPixmap = Assets.botin7;
         int x = botin.x * 32;
         int y = botin.y * 32;
         g.drawPixmap(stainPixmap, x, y);
-
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
             Tripulacion part = jollyroger.partes.get(i);
             x = part.x * 32;
             y = part.y * 32;
-            g.drawPixmap(Assets.tripulacion, x, y);
+            Pixmap virusPixmap = null;
+            if(part.tipo== Botin.TIPO_1)
+                virusPixmap = Assets.botin1;
+            else if(part.tipo == Botin.TIPO_2)
+                virusPixmap = Assets.botin2;
+            else if(part.tipo == Botin.TIPO_3)
+                virusPixmap = Assets.botin3;
+            else if(part.tipo== Botin.TIPO_4)
+                virusPixmap = Assets.botin4;
+            else if(part.tipo == Botin.TIPO_5)
+                virusPixmap = Assets.botin5;
+            else if(part.tipo == Botin.TIPO_6)
+                virusPixmap = Assets.botin6;
+            else if(part.tipo== Botin.TIPO_7)
+                virusPixmap = Assets.botin7;
+            g.drawPixmap(virusPixmap, x, y);
         }
 
         Pixmap headPixmap = null;
         if(jollyroger.direccion == JollyRoger.ARRIBA)
-            headPixmap = Assets.barcoarriba;
+            headPixmap = Assets.cabezaarriba;
         if(jollyroger.direccion == JollyRoger.IZQUIERDA)
             headPixmap = Assets.barcoizquierda;
         if(jollyroger.direccion == JollyRoger.ABAJO)
