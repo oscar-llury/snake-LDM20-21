@@ -1,5 +1,6 @@
 package com.ldm.ejemplojuegopiratas.androidimpl;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -28,6 +29,7 @@ public abstract class AndroidJuego extends Activity implements Juego {
     Pantalla pantalla;
     WakeLock wakeLock;
 
+    @SuppressLint("InvalidWakeLockTag")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
