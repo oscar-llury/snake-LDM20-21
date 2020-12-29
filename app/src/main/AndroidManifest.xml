@@ -15,7 +15,7 @@
 
         android:icon="@drawable/icon" android:debuggable="false" android:label="JollyRoger">
 
-        <activity android:name="JuegoPiratas">
+        <activity android:name=".JuegoVirus">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,6 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
-public class Botin {
+public class Virus {
     public static final int TIPO_1 = 0;
     public static final int TIPO_2 = 1;
     public static final int TIPO_3 = 2;
@@ -11,7 +11,7 @@ public class Botin {
 
     private int x, y, tipo, valor;
 
-    public Botin(int x, int y, int tipo) {
+    public Virus(int x, int y, int tipo) {
         this.x = x;
         this.y = y;
         this.tipo = tipo;

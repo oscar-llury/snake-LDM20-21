@@ -10,7 +10,7 @@ public class Mundo {
     static final float TICK_DECREMENTO = 0.05f;
 
     public JollyRoger jollyroger;
-    public Botin botin;
+    public Virus virus;
     public boolean finalJuego = false;
     public int puntuacion = 0;
 
@@ -33,7 +33,7 @@ public class Mundo {
 
         int len = jollyroger.partes.size();
         for (int i = 0; i < len; i++) {
-            Tripulacion parte = jollyroger.partes.get(i);
+            PartesVirus parte = jollyroger.partes.get(i);
             campos[parte.getX()][parte.getY()] = true;
         }
 
@@ -51,7 +51,7 @@ public class Mundo {
                 }
             }
         }
-        botin = new Botin(botinX, botinY, random.nextInt(7));
+        virus = new Virus(botinX, botinY, random.nextInt(7));
     }
 
     public void update(float deltaTime) {
@@ -69,10 +69,10 @@ public class Mundo {
                 return;
             }
 
-            Tripulacion head = jollyroger.partes.get(0);
-            if (head.getX() == botin.getX() && head.getY() == botin.getY()) {
-                puntuacion += botin.getValor();
-                jollyroger.abordaje(botin.getTipo());
+            PartesVirus head = jollyroger.partes.get(0);
+            if (head.getX() == virus.getX() && head.getY() == virus.getY()) {
+                puntuacion += virus.getValor();
+                jollyroger.abordaje(virus.getTipo());
                 if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
                     finalJuego = true;
                     return;

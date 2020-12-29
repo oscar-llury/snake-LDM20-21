@@ -20,12 +20,9 @@ public class Assets {
     public static Pixmap cabezaarriba;
     public static Pixmap barcoderecha;
     public static Pixmap tripulacion;
-    public static Pixmap botin1;
-    public static Pixmap botin2;
-    public static Pixmap botin3;
+    public static Pixmap virus1,virus2,virus3,virus4,virus5,virus6,virus7;
     public static Sonido pulsar;
     public static Sonido ataque;
     public static Sonido derrota;
-    public static Pixmap botin4,botin5,botin6,botin7;
 
 }

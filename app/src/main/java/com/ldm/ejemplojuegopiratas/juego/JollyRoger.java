@@ -9,14 +9,14 @@ public class JollyRoger {
     public static final int ABAJO = 2;
     public static final int DERECHA = 3;
 
-    public List<Tripulacion> partes = new ArrayList<>();
+    public List<PartesVirus> partes = new ArrayList<>();
     public int direccion;
 
     public JollyRoger() {
         direccion = ARRIBA;
-        partes.add(new Tripulacion(5, 6,0));
-        partes.add(new Tripulacion(5, 7,0));
-        partes.add(new Tripulacion(5, 8,0));
+        partes.add(new PartesVirus(5, 6,0));
+        partes.add(new PartesVirus(5, 7,0));
+        partes.add(new PartesVirus(5, 8,0));
     }
 
     public void girarIzquierda() {
@@ -32,17 +32,17 @@ public class JollyRoger {
     }
 
     public void abordaje(int tipo) {
-        Tripulacion end = partes.get(partes.size()-1);
-        partes.add(new Tripulacion(end.getX(), end.getY(),tipo));
+        PartesVirus end = partes.get(partes.size()-1);
+        partes.add(new PartesVirus(end.getX(), end.getY(),tipo));
     }
 
     public void avance() {
-        Tripulacion barco = partes.get(0);
+        PartesVirus barco = partes.get(0);
 
         int len = partes.size() - 1;
         for(int i = len; i > 0; i--) {
-            Tripulacion antes = partes.get(i-1);
-            Tripulacion parte = partes.get(i);
+            PartesVirus antes = partes.get(i-1);
+            PartesVirus parte = partes.get(i);
             parte.setX(antes.getX());
             parte.setY(antes.getY());
         }
@@ -68,9 +68,9 @@ public class JollyRoger {
 
     public boolean comprobarChoque() {
         int len = partes.size();
-        Tripulacion barco = partes.get(0);
+        PartesVirus barco = partes.get(0);
         for(int i = 1; i < len; i++) {
-            Tripulacion parte = partes.get(i);
+            PartesVirus parte = partes.get(i);
             if(parte.getX() == barco.getX() && parte.getY() == barco.getY())
                 return true;
         }

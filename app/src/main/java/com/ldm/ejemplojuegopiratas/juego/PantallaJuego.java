@@ -147,51 +147,51 @@ public class PantallaJuego extends Pantalla {
     private void drawWorld(Mundo mundo) {
         Graficos g = juego.getGraphics();
         JollyRoger jollyroger = mundo.jollyroger;
-        Tripulacion head = jollyroger.partes.get(0);
-        Botin botin = mundo.botin;
+        PartesVirus head = jollyroger.partes.get(0);
+        Virus virus = mundo.virus;
 
         Pixmap stainPixmap = null;
-        int tipoVirus = botin.getTipo();
-        if(tipoVirus == Botin.TIPO_1)
-            stainPixmap = Assets.botin1;
-        else if(tipoVirus == Botin.TIPO_2)
-            stainPixmap = Assets.botin2;
-        else if(tipoVirus == Botin.TIPO_3)
-            stainPixmap = Assets.botin3;
-        else if(tipoVirus == Botin.TIPO_4)
-            stainPixmap = Assets.botin4;
-        else if(tipoVirus == Botin.TIPO_5)
-            stainPixmap = Assets.botin5;
-        else if(tipoVirus == Botin.TIPO_6)
-            stainPixmap = Assets.botin6;
-        else if(tipoVirus == Botin.TIPO_7)
-            stainPixmap = Assets.botin7;
+        int tipoVirus = virus.getTipo();
+        if(tipoVirus == Virus.TIPO_1)
+            stainPixmap = Assets.virus1;
+        else if(tipoVirus == Virus.TIPO_2)
+            stainPixmap = Assets.virus2;
+        else if(tipoVirus == Virus.TIPO_3)
+            stainPixmap = Assets.virus3;
+        else if(tipoVirus == Virus.TIPO_4)
+            stainPixmap = Assets.virus4;
+        else if(tipoVirus == Virus.TIPO_5)
+            stainPixmap = Assets.virus5;
+        else if(tipoVirus == Virus.TIPO_6)
+            stainPixmap = Assets.virus6;
+        else if(tipoVirus == Virus.TIPO_7)
+            stainPixmap = Assets.virus7;
 
-        int x = botin.getX() * 32;
-        int y = botin.getY() * 32;
+        int x = virus.getX() * 32;
+        int y = virus.getY() * 32;
         g.drawPixmap(stainPixmap, x, y);
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
-            Tripulacion part = jollyroger.partes.get(i);
+            PartesVirus part = jollyroger.partes.get(i);
             x = part.getX() * 32;
             y = part.getY() * 32;
             Pixmap virusPixmap = null;
 
             tipoVirus = part.getTipo();
-            if(tipoVirus == Botin.TIPO_1)
-                virusPixmap = Assets.botin1;
-            else if(tipoVirus == Botin.TIPO_2)
-                virusPixmap = Assets.botin2;
-            else if(tipoVirus == Botin.TIPO_3)
-                virusPixmap = Assets.botin3;
-            else if(tipoVirus == Botin.TIPO_4)
-                virusPixmap = Assets.botin4;
-            else if(tipoVirus == Botin.TIPO_5)
-                virusPixmap = Assets.botin5;
-            else if(tipoVirus == Botin.TIPO_6)
-                virusPixmap = Assets.botin6;
-            else if(tipoVirus == Botin.TIPO_7)
-                virusPixmap = Assets.botin7;
+            if(tipoVirus == Virus.TIPO_1)
+                virusPixmap = Assets.virus1;
+            else if(tipoVirus == Virus.TIPO_2)
+                virusPixmap = Assets.virus2;
+            else if(tipoVirus == Virus.TIPO_3)
+                virusPixmap = Assets.virus3;
+            else if(tipoVirus == Virus.TIPO_4)
+                virusPixmap = Assets.virus4;
+            else if(tipoVirus == Virus.TIPO_5)
+                virusPixmap = Assets.virus5;
+            else if(tipoVirus == Virus.TIPO_6)
+                virusPixmap = Assets.virus6;
+            else if(tipoVirus == Virus.TIPO_7)
+                virusPixmap = Assets.virus7;
             g.drawPixmap(virusPixmap, x, y);
         }
 
