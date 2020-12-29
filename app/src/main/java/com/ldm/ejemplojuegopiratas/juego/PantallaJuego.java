@@ -199,11 +199,11 @@ public class PantallaJuego extends Pantalla {
         if(jollyroger.direccion == JollyRoger.ARRIBA)
             headPixmap = Assets.cabezaarriba;
         if(jollyroger.direccion == JollyRoger.IZQUIERDA)
-            headPixmap = Assets.barcoizquierda;
+            headPixmap = Assets.cabezaizquierda;
         if(jollyroger.direccion == JollyRoger.ABAJO)
-            headPixmap = Assets.barcoabajo;
+            headPixmap = Assets.cabezaabajo;
         if(jollyroger.direccion == JollyRoger.DERECHA)
-            headPixmap = Assets.barcoderecha;
+            headPixmap = Assets.cabezaderecha;
         x = head.getX() * 32 + 16;
         y = head.getY() * 32 + 16;
         g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);

@@ -25,10 +25,9 @@ public class LoadingScreen extends Pantalla{
         Assets.menupausa = g.newPixmap("menupausa.png", PixmapFormat.ARGB4444);
         Assets.finjuego = g.newPixmap("finjuego.png", PixmapFormat.ARGB4444);
         Assets.cabezaarriba = g.newPixmap("cabeza-arriba.png", PixmapFormat.ARGB4444);
-        Assets.barcoizquierda = g.newPixmap("cabeza-izq.png", PixmapFormat.ARGB4444);
-        Assets.barcoabajo = g.newPixmap("cabeza-abajo.png", PixmapFormat.ARGB4444);
-        Assets.barcoderecha = g.newPixmap("cabeza-der.png", PixmapFormat.ARGB4444);
-        Assets.tripulacion = g.newPixmap("tripulacion.png", PixmapFormat.ARGB4444);
+        Assets.cabezaizquierda = g.newPixmap("cabeza-izq.png", PixmapFormat.ARGB4444);
+        Assets.cabezaabajo = g.newPixmap("cabeza-abajo.png", PixmapFormat.ARGB4444);
+        Assets.cabezaderecha = g.newPixmap("cabeza-der.png", PixmapFormat.ARGB4444);
         Assets.virus1 = g.newPixmap("virus1.png", PixmapFormat.ARGB4444);
         Assets.virus2 = g.newPixmap("virus2.png", PixmapFormat.ARGB4444);
         Assets.virus3 = g.newPixmap("virus3.png", PixmapFormat.ARGB4444);
