@@ -21,10 +21,10 @@ public class Mundo {
 
     public Mundo() {
         jollyroger = new JollyRoger();
-        colocarBotin();
+        colocarVirus();
     }
 
-    private void colocarBotin() {
+    private void colocarVirus() {
         for (int x = 0; x < MUNDO_ANCHO; x++) {
             for (int y = 0; y < MUNDO_ALTO; y++) {
                 campos[x][y] = false;
@@ -37,21 +37,21 @@ public class Mundo {
             campos[parte.getX()][parte.getY()] = true;
         }
 
-        int botinX = random.nextInt(MUNDO_ANCHO);
-        int botinY = random.nextInt(MUNDO_ALTO);
+        int virusX = random.nextInt(MUNDO_ANCHO);
+        int virusY = random.nextInt(MUNDO_ALTO);
         while (true) {
-            if (campos[botinX][botinY] == false)
+            if (campos[virusX][virusY] == false)
                 break;
-            botinX += 1;
-            if (botinX >= MUNDO_ANCHO) {
-                botinX = 0;
-                botinY += 1;
-                if (botinY >= MUNDO_ALTO) {
-                    botinY = 0;
+            virusX += 1;
+            if (virusX >= MUNDO_ANCHO) {
+                virusX = 0;
+                virusY += 1;
+                if (virusY >= MUNDO_ALTO) {
+                    virusY = 0;
                 }
             }
         }
-        virus = new Virus(botinX, botinY, random.nextInt(7));
+        virus = new Virus(virusX, virusY, random.nextInt(7));
     }
 
     public void update(float deltaTime) {
@@ -77,7 +77,7 @@ public class Mundo {
                     finalJuego = true;
                     return;
                 } else {
-                    colocarBotin();
+                    colocarVirus();
                 }
 
                 if (puntuacion % 100 == 0 && tick - TICK_DECREMENTO > 0) {
