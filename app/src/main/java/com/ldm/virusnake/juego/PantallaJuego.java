@@ -55,6 +55,7 @@ public class PantallaJuego extends Pantalla {
         if(touchEvents.size() > 0){
             if(sonidoHabilitado) {
                 Assets.ambiente.play();
+                Assets.ambiente.setLooping(true);
                 Assets.pulsar.play(1);
             }
             estado = EstadoJuego.Ejecutandose;
@@ -111,6 +112,7 @@ public class PantallaJuego extends Pantalla {
                     if(event.y > 100 && event.y <= 148) {
                         if(sonidoHabilitado){
                             Assets.pulsar.play(1);
+                            Assets.ambiente.setLooping(true);
                             Assets.ambiente.play();
                         }
                         estado = EstadoJuego.Ejecutandose;
