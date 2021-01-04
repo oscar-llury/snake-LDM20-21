@@ -1,23 +1,31 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
 import com.ldm.ejemplojuegopiratas.Juego;
 import com.ldm.ejemplojuegopiratas.Graficos;
 import com.ldm.ejemplojuegopiratas.Input.TouchEvent;
 import com.ldm.ejemplojuegopiratas.Pantalla;
+import android.content.Context;
 
 
 public class PantallaMaximasPuntuaciones extends Pantalla {
-    String lineas[] = new String[5];
-
+    private final Object PantallaMaximasPuntuaciones = this;
+    ArrayList<String> ranking = new ArrayList();
     public PantallaMaximasPuntuaciones(Juego juego) {
         super(juego);
+            AdminSQLiteOpenHelper dataBase_helper = new AdminSQLiteOpenHelper((Context) PantallaMaximasPuntuaciones, "Virus_bbdd", null, 1);
+            SQLiteDatabase dataBase = dataBase_helper.getWritableDatabase();
+            Cursor cursor = dataBase.rawQuery("select * from ranking  order by score DESC", null);
 
-        for (int i = 0; i < 5; i++) {
-            lineas[i] = "" + (i + 1) + ". " + Configuraciones.maxPuntuaciones[i];
-        }
+            while (cursor.moveToNext()) {
+                ranking.add(cursor.getString(1));
+            }
+            dataBase.close();
     }
+
 
     @Override
     public void update(float deltaTime) {
@@ -46,8 +54,8 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         g.drawPixmap(Assets.menuprincipal, 64, 20, 0, 42, 196, 42);
 
         int y = 100;
-        for (int i = 0; i < 5; i++) {
-            dibujarTexto(g, lineas[i], 20, y);
+        for (int i = 0; i < ranking.size(); i++) {
+            dibujarTexto(g, ranking.get(i), 20, y);
             y += 50;
         }
 

@@ -1,5 +1,10 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -10,7 +15,6 @@ import com.ldm.ejemplojuegopiratas.FileIO;
 
 public class Configuraciones {
     public static boolean sonidoHabilitado = true;
-    public static int[] maxPuntuaciones = new int[] { 100, 80, 50, 30, 10 };
 
     public static void cargar(FileIO files) {
         BufferedReader in = null;
@@ -18,9 +22,6 @@ public class Configuraciones {
             in = new BufferedReader(new InputStreamReader(
                     files.leerArchivo(".piratas")));
             sonidoHabilitado = Boolean.parseBoolean(in.readLine());
-            for (int i = 0; i < 5; i++) {
-                maxPuntuaciones[i] = Integer.parseInt(in.readLine());
-            }
         } catch (IOException e) {
             // :( Está bien aquí debería ir algo
         } catch (NumberFormatException e) {
@@ -41,10 +42,7 @@ public class Configuraciones {
                     files.escribirArchivo(".piratas")));
             out.write(Boolean.toString(sonidoHabilitado));
             out.write("\n");
-            for (int i = 0; i < 5; i++) {
-                out.write(Integer.toString(maxPuntuaciones[i]));
-                out.write("\n");
-            }
+            out.write("\n");
 
         } catch (IOException e) {
         } finally {
@@ -56,14 +54,14 @@ public class Configuraciones {
         }
     }
 
-    public static void addScore(int score) {
-        for (int i = 0; i < 5; i++) {
-            if (maxPuntuaciones[i] < score) {
-                for (int j = 4; j > i; j--)
-                    maxPuntuaciones[j] = maxPuntuaciones[j - 1];
-                maxPuntuaciones[i] = score;
-                break;
-            }
-        }
+    public void addScore(int score) {
+         Object Config = this;
+    //Añadir score a la bbdd
+        AdminSQLiteOpenHelper dataBase_helper = new AdminSQLiteOpenHelper((Context) Config, "Virus_bbdd", null, 1);
+        SQLiteDatabase dataBase = dataBase_helper.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put("score",score);
+        dataBase.insert("ranking",null,value);
+        dataBase.close();
     }
 }
