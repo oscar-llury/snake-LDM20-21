@@ -21,7 +21,7 @@ public class Assets {
     public static Pixmap cabezaarriba;
     public static Pixmap cabezaderecha;
     public static Pixmap virus1,virus2,virus3,virus4,virus5,virus6,virus7;
-    public static Pixmap med1,med2,med3;
+    public static Pixmap med1,med2;
     public static Sonido pulsar;
     public static Sonido ataque;
     public static Sonido derrota;

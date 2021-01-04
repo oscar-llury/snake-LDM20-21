@@ -201,8 +201,6 @@ public class PantallaJuego extends Pantalla {
                 medPixmap = Assets.med1;
             else if (tipoMedicina == Medicina.TIPO_2)
                 medPixmap = Assets.med2;
-            else if (tipoMedicina == Medicina.TIPO_3)
-                medPixmap = Assets.med3;
 
             x = medicina.getX() * 32;
             y = medicina.getY() * 32;

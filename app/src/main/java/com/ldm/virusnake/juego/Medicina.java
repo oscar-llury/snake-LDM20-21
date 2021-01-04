@@ -3,7 +3,6 @@ package com.ldm.virusnake.juego;
 public class Medicina {
     public static final int TIPO_1 = 0;
     public static final int TIPO_2 = 1;
-    public static final int TIPO_3 = 2;
 
     private int x, y, tipo;
 

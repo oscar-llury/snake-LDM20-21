@@ -38,12 +38,16 @@ public class JollyRoger {
     }
 
     public void vacuna(int tipo) {
-        PartesVirus end = partes.get(partes.size()-1);
-        if(partes.size()>3){
-            this.partes = partes.subList(0,partes.size()-3);
+        if (tipo == Medicina.TIPO_1) {
+            if (partes.size() > 3) {
+                this.partes = partes.subList(0, partes.size() - 1);
+            }
+        } else if (tipo == Medicina.TIPO_2) {
+            if (partes.size() > 3) {
+                this.partes = partes.subList(0, partes.size() - 3);
+            }
         }
     }
-
     public void avance() {
         PartesVirus barco = partes.get(0);
 
