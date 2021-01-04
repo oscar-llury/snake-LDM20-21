@@ -117,7 +117,6 @@ public class Mundo {
                         return;
                     } else {
                         this.medicina = null;
-                        colocarVirus();
                     }
 
                     if (puntuacion % 100 == 0 && tick - TICK_DECREMENTO > 0) {
