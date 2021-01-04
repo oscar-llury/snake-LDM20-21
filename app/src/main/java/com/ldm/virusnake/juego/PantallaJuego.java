@@ -29,32 +29,10 @@ public class PantallaJuego extends Pantalla {
     Mundo mundo;
     int antiguaPuntuacion = 0;
     String puntuacion = "0";
-    //private boolean sonidoHabilitado = true;
 
     public PantallaJuego(Juego juego) {
         super(juego);
         mundo = new Mundo();
-
-        BufferedReader in = null;
-/*
-        FileIO files = juego.getFileIO();
-        try {
-            in = new BufferedReader(new InputStreamReader(
-                   files.leerArchivo(".piratas")));
-            sonidoHabilitado = Boolean.parseBoolean(in.readLine());
-        } catch (IOException e) {
-            // :( Está bien aquí debería ir algo
-        } catch (NumberFormatException e) {
-            // :/ Nadie es perfecto
-        } finally {
-            try {
-                if (in != null)
-                    in.close();
-            } catch (IOException e) {
-            }
-        }
-        
- */
     }
 
     @Override
@@ -317,7 +295,7 @@ public class PantallaJuego extends Pantalla {
             estado = EstadoJuego.Pausado;
 
         if(mundo.finalJuego) {
-            addScore(1);
+            addScore(Integer.parseInt(puntuacion));
             save(juego.getFileIO());
         }
     }
@@ -332,7 +310,7 @@ public class PantallaJuego extends Pantalla {
 
     }
 
-    public void addScore(int score) {
+    private void addScore(int score) {
         Object config = this;
         //Añadir score a la bbdd
         Context context = Virusnake.context;

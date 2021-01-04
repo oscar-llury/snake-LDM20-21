@@ -24,7 +24,7 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
             Cursor cursor = dataBase.rawQuery("select * from ranking  order by score DESC", null);
 
             while (cursor.moveToNext()) {
-                ranking.add(cursor.getString(0));
+                ranking.add(cursor.getString(1));
             }
             dataBase.close();
     }
@@ -58,7 +58,7 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
 
         int y = 100;
         for (int i = 0; i < ranking.size(); i++) {
-            dibujarTexto(g, ranking.get(i), 20, y);
+            dibujarTexto(g, String.valueOf(i+1)+". "+ranking.get(i), 20, y);
             y += 50;
         }
 
