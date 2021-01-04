@@ -5,11 +5,11 @@ import java.util.Random;
 public class Mundo {
     static final int MUNDO_ANCHO = 10;
     static final int MUNDO_ALTO = 13;
-    static final int INCREMENTO_PUNTUACION = 10;
     static final float TICK_INICIAL = 0.5f;
     static final float TICK_DECREMENTO = 0.05f;
 
     public JollyRoger jollyroger;
+    public Medicina medicina;
     public Virus virus;
     public boolean finalJuego = false;
     public int puntuacion = 0;
@@ -21,6 +21,7 @@ public class Mundo {
 
     public Mundo() {
         jollyroger = new JollyRoger();
+        this.medicina=null;
         colocarVirus();
     }
 
@@ -39,6 +40,10 @@ public class Mundo {
 
         int virusX = random.nextInt(MUNDO_ANCHO);
         int virusY = random.nextInt(MUNDO_ALTO);
+
+        int medicinaX = random.nextInt(MUNDO_ANCHO);
+        int medicinaY = random.nextInt(MUNDO_ALTO);
+
         while (true) {
             if (campos[virusX][virusY] == false)
                 break;
@@ -51,12 +56,31 @@ public class Mundo {
                 }
             }
         }
-        virus = new Virus(virusX, virusY, random.nextInt(8));
+
+        while (true) {
+            if (campos[medicinaX][medicinaY] == false)
+                break;
+            medicinaX += 1;
+            if (medicinaX >= MUNDO_ANCHO) {
+                medicinaX = 0;
+                medicinaY += 1;
+                if (medicinaY >= MUNDO_ALTO) {
+                    medicinaY = 0;
+                }
+            }
+        }
+
+        virus = new Virus(virusX, virusY, random.nextInt(7));
+        if (medicina == null) {
+            int randommed = random.nextInt(10);
+            if (randommed == 5) {
+                medicina = new Medicina(medicinaX, medicinaY, random.nextInt(2));
+            }
+        }
     }
 
     public void update(float deltaTime) {
         if (finalJuego)
-
             return;
 
         tiempoTick += deltaTime;
@@ -82,6 +106,23 @@ public class Mundo {
 
                 if (puntuacion % 100 == 0 && tick - TICK_DECREMENTO > 0) {
                     tick -= TICK_DECREMENTO;
+                }
+            }
+            if(this.medicina!=null) {
+                if (head.getX() == medicina.getX() && head.getY() == medicina.getY()) {
+                    //puntuacion += virus.getValor();
+                    jollyroger.vacuna(medicina.getTipo());
+                    if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
+                        finalJuego = true;
+                        return;
+                    } else {
+                        this.medicina = null;
+                        colocarVirus();
+                    }
+
+                    if (puntuacion % 100 == 0 && tick - TICK_DECREMENTO > 0) {
+                        tick -= TICK_DECREMENTO;
+                    }
                 }
             }
         }

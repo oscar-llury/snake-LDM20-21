@@ -33,9 +33,13 @@ public class JollyRoger {
 
     public void abordaje(int tipo) {
         PartesVirus end = partes.get(partes.size()-1);
-        if(tipo != 7){
-            partes.add(new PartesVirus(end.getX(), end.getY(),tipo));
-        }else{
+        partes.add(new PartesVirus(end.getX(), end.getY(),tipo));
+
+    }
+
+    public void vacuna(int tipo) {
+        PartesVirus end = partes.get(partes.size()-1);
+        if(partes.size()>3){
             this.partes = partes.subList(0,partes.size()-3);
         }
     }

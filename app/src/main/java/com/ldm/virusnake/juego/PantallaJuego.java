@@ -175,9 +175,7 @@ public class PantallaJuego extends Pantalla {
 
         Pixmap stainPixmap = null;
         int tipoVirus = virus.getTipo();
-        if(tipoVirus == Virus.TIPO_8)
-            stainPixmap = Assets.radiation;
-        else if(tipoVirus == Virus.TIPO_1)
+        if(tipoVirus == Virus.TIPO_1)
             stainPixmap = Assets.virus1;
         else if(tipoVirus == Virus.TIPO_2)
             stainPixmap = Assets.virus2;
@@ -192,8 +190,24 @@ public class PantallaJuego extends Pantalla {
         else if(tipoVirus == Virus.TIPO_7)
             stainPixmap = Assets.virus7;
 
-        int x = virus.getX() * 32;
-        int y = virus.getY() * 32;
+        int x,y;
+        if(mundo.medicina!=null) {
+            Medicina medicina = mundo.medicina;
+            Pixmap medPixmap = null;
+            int tipoMedicina = medicina.getTipo();
+            if (tipoMedicina == Medicina.TIPO_1)
+                medPixmap = Assets.med1;
+            else if (tipoMedicina == Medicina.TIPO_2)
+                medPixmap = Assets.med2;
+            else if (tipoMedicina == Medicina.TIPO_3)
+                medPixmap = Assets.med3;
+
+            x = medicina.getX() * 32;
+            y = medicina.getY() * 32;
+            g.drawPixmap(medPixmap, x,y);
+        }
+        x = virus.getX() * 32;
+        y = virus.getY() * 32;
         g.drawPixmap(stainPixmap, x, y);
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
