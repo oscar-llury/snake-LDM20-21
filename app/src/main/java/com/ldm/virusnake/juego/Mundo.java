@@ -51,7 +51,7 @@ public class Mundo {
                 }
             }
         }
-        virus = new Virus(virusX, virusY, random.nextInt(7));
+        virus = new Virus(virusX, virusY, random.nextInt(8));
     }
 
     public void update(float deltaTime) {

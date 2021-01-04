@@ -35,6 +35,7 @@ public class LoadingScreen extends Pantalla{
         Assets.virus5 = g.newPixmap("virus5.png", PixmapFormat.ARGB4444);
         Assets.virus6 = g.newPixmap("virus6.png", PixmapFormat.ARGB4444);
         Assets.virus7 = g.newPixmap("virus7.png", PixmapFormat.ARGB4444);
+        Assets.radiation = g.newPixmap("radiation.png", PixmapFormat.ARGB4444);
         Assets.pulsar = juego.getAudio().nuevoSonido("pulsar.ogg");
         Assets.ataque = juego.getAudio().nuevoSonido("ataque.ogg");
         Assets.derrota = juego.getAudio().nuevoSonido("derrota.ogg");

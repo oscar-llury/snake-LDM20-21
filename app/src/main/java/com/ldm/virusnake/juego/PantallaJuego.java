@@ -175,7 +175,9 @@ public class PantallaJuego extends Pantalla {
 
         Pixmap stainPixmap = null;
         int tipoVirus = virus.getTipo();
-        if(tipoVirus == Virus.TIPO_1)
+        if(tipoVirus == Virus.TIPO_8)
+            stainPixmap = Assets.radiation;
+        else if(tipoVirus == Virus.TIPO_1)
             stainPixmap = Assets.virus1;
         else if(tipoVirus == Virus.TIPO_2)
             stainPixmap = Assets.virus2;

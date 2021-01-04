@@ -8,6 +8,7 @@ public class Virus {
     public static final int TIPO_5 = 4;
     public static final int TIPO_6 = 5;
     public static final int TIPO_7 = 6;
+    public static final int TIPO_8 = 7;
 
     private int x, y, tipo, valor;
 
@@ -29,6 +30,8 @@ public class Virus {
             this.valor = 17;
         else if(tipo == this.TIPO_7)
             this.valor = 21;
+        else if(tipo == this.TIPO_8)
+            this.valor = 0;
         else
             this.valor = 0;
     }
