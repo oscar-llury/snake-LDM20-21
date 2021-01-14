@@ -14,6 +14,7 @@ public class Assets {
     public static Pixmap ayuda3;
     public static Pixmap ayuda4;
     public static Pixmap ayuda5;
+    public static Pixmap ayuda6;
     public static Pixmap numeros;
     public static Pixmap preparado;
     public static Pixmap menupausa;
