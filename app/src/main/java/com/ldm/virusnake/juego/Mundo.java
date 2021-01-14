@@ -111,7 +111,10 @@ public class Mundo {
             if(this.medicina!=null) {
                 if (head.getX() == medicina.getX() && head.getY() == medicina.getY()) {
                     //puntuacion += virus.getValor();
-                    jollyroger.vacuna(medicina.getTipo());
+                    boolean exit = jollyroger.vacuna(medicina.getTipo());
+                    if (exit){
+                        finalJuego = true;
+                    }
                     if (jollyroger.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
                         finalJuego = true;
                         return;
