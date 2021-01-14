@@ -27,6 +27,12 @@ public class PantallaAyuda4 extends Pantalla {
                         Assets.pulsar.play(1);
                     return;
                 }
+                if(event.x > 0 && event.x < 64 && event.y > 416 ) {
+                    juego.setScreen(new PantallaAyuda3(juego));
+                    if(Configuraciones.sonidoHabilitado)
+                        Assets.pulsar.play(1);
+                    return;
+                }
             }
         }
     }
@@ -36,6 +42,7 @@ public class PantallaAyuda4 extends Pantalla {
         Graficos g = juego.getGraphics();
         g.drawPixmap(Assets.fondo, 0, 0);
         g.drawPixmap(Assets.ayuda4, 64, 100);
+        g.drawPixmap(Assets.botones, 0,416,64,64,64,64);
         g.drawPixmap(Assets.botones, 256, 416, 0, 64, 64, 64);
     }
 
