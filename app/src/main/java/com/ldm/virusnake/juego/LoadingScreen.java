@@ -14,12 +14,14 @@ public class LoadingScreen extends Pantalla{
     public void update(float deltaTime) {
         Graficos g = juego.getGraphics();
         Assets.fondo = g.newPixmap("background.jpg", PixmapFormat.RGB565);
-        Assets.logo = g.newPixmap("logo.png", PixmapFormat.ARGB4444);
+        Assets.logo = g.newPixmap("logotipo-inicio.png", PixmapFormat.ARGB4444);
         Assets.menuprincipal = g.newPixmap("menuprincipal.png", PixmapFormat.ARGB4444);
         Assets.botones = g.newPixmap("botones.png", PixmapFormat.ARGB4444);
         Assets.ayuda1 = g.newPixmap("ayuda1.png", PixmapFormat.ARGB4444);
         Assets.ayuda2 = g.newPixmap("ayuda2.png", PixmapFormat.ARGB4444);
         Assets.ayuda3 = g.newPixmap("ayuda3.png", PixmapFormat.ARGB4444);
+        Assets.ayuda4 = g.newPixmap("ayuda4.png", PixmapFormat.ARGB4444);
+        Assets.ayuda5 = g.newPixmap("ayuda5.png", PixmapFormat.ARGB4444);
         Assets.numeros = g.newPixmap("numeros.png", PixmapFormat.ARGB4444);
         Assets.preparado = g.newPixmap("preparado.png", PixmapFormat.ARGB4444);
         Assets.menupausa = g.newPixmap("menupausa.png", PixmapFormat.ARGB4444);
