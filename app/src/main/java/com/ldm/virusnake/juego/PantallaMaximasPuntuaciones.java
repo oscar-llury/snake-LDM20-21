@@ -57,7 +57,13 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         g.drawPixmap(Assets.menuprincipal, 64, 20, 0, 42, 196, 42);
 
         int y = 100;
-        for (int i = 0; i < ranking.size(); i++) {
+        int tope;
+        if (ranking.size()>6){
+            tope = 6;
+        }else{
+            tope = ranking.size();
+        }
+        for (int i = 0; i < tope; i++) {
             dibujarTexto(g, String.valueOf(i+1)+". "+ranking.get(i), 20, y);
             y += 50;
         }
