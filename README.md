@@ -1,4 +1,4 @@
-# snake-LDM20-21
+# Virusnake
 
 ![icon](app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png)
 
