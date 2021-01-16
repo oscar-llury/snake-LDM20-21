@@ -1,7 +1,9 @@
 package com.ldm.virusnake.juego;
 
 public class PartesVirus {
-    private int x, y,tipo;
+    private int x;
+    private int y;
+    private final int tipo;
 
     public PartesVirus(int x, int y, int tipo) {
         this.x = x;

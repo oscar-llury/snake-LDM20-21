@@ -1,6 +1,5 @@
 package com.ldm.virusnake.juego;
 
-import java.io.BufferedReader;
 import java.util.List;
 
 import android.content.ContentValues;
@@ -289,8 +288,8 @@ public class PantallaJuego extends Pantalla {
                 continue;
             }
 
-            int srcX = 0;
-            int srcWidth = 0;
+            int srcX;
+            int srcWidth;
             if (character == '.') {
                 srcX = 200;
                 srcWidth = 10;
@@ -327,7 +326,6 @@ public class PantallaJuego extends Pantalla {
     }
 
     private void addScore(int score) {
-        Object config = this;
         //Añadir score a la bbdd
         Context context = Virusnake.context;
         AdminSQLiteOpenHelper dataBase_helper = new AdminSQLiteOpenHelper( context, "Virus_bbdd", null, 1);

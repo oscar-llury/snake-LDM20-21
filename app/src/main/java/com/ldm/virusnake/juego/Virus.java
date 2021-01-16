@@ -9,25 +9,28 @@ public class Virus {
     public static final int TIPO_6 = 5;
     public static final int TIPO_7 = 6;
 
-    private int x, y, tipo, valor;
+    private final int x;
+    private final int y;
+    private final int tipo;
+    private final int valor;
 
     public Virus(int x, int y, int tipo) {
         this.x = x;
         this.y = y;
         this.tipo = tipo;
-        if(tipo == this.TIPO_1)
+        if(tipo == TIPO_1)
             this.valor = 1;
-        else if(tipo == this.TIPO_2)
+        else if(tipo == TIPO_2)
             this.valor = 3;
-        else if(tipo == this.TIPO_3)
+        else if(tipo == TIPO_3)
             this.valor = 5;
-        else if(tipo == this.TIPO_4)
+        else if(tipo == TIPO_4)
             this.valor = 7;
-        else if(tipo == this.TIPO_5)
+        else if(tipo == TIPO_5)
             this.valor = 11;
-        else if(tipo == this.TIPO_6)
+        else if(tipo == TIPO_6)
             this.valor = 17;
-        else if(tipo == this.TIPO_7)
+        else if(tipo == TIPO_7)
             this.valor = 21;
         else
             this.valor = 0;

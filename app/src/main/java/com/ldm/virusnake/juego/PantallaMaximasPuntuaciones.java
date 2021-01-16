@@ -3,6 +3,7 @@ package com.ldm.virusnake.juego;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
@@ -15,13 +16,13 @@ import com.ldm.virusnake.Virusnake;
 
 public class PantallaMaximasPuntuaciones extends Pantalla {
 
-    ArrayList<String> ranking = new ArrayList();
+    ArrayList<String> ranking = new ArrayList<>();
     public PantallaMaximasPuntuaciones(Juego juego) {
         super(juego);
         Context context = Virusnake.context;
         AdminSQLiteOpenHelper dataBase_helper = new AdminSQLiteOpenHelper(context, "Virus_bbdd", null, 1);
             SQLiteDatabase dataBase = dataBase_helper.getWritableDatabase();
-            Cursor cursor = dataBase.rawQuery("select * from ranking  order by score DESC", null);
+            @SuppressLint("Recycle") Cursor cursor = dataBase.rawQuery("select * from ranking  order by score DESC", null);
 
             while (cursor.moveToNext()) {
                 ranking.add(cursor.getString(1));
@@ -57,14 +58,9 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         g.drawPixmap(Assets.menuprincipal, 64, 20, 0, 42, 196, 42);
 
         int y = 100;
-        int tope;
-        if (ranking.size()>6){
-            tope = 6;
-        }else{
-            tope = ranking.size();
-        }
+        int tope = Math.min(ranking.size(), 6);
         for (int i = 0; i < tope; i++) {
-            dibujarTexto(g, String.valueOf(i+1)+". "+ranking.get(i), 20, y);
+            dibujarTexto(g, (i + 1) +". "+ranking.get(i), 20, y);
             y += 50;
         }
 
@@ -81,8 +77,8 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
                 continue;
             }
 
-            int srcX = 0;
-            int srcWidth = 0;
+            int srcX;
+            int srcWidth;
             if (character == '.') {
                 srcX = 200;
                 srcWidth = 10;

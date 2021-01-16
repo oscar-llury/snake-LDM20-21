@@ -14,7 +14,7 @@ public class Mundo {
     public boolean finalJuego = false;
     public int puntuacion = 0;
 
-    boolean campos[][] = new boolean[MUNDO_ANCHO][MUNDO_ALTO];
+    boolean[][] campos = new boolean[MUNDO_ANCHO][MUNDO_ALTO];
     Random random = new Random();
     float tiempoTick = 0;
     static float tick = TICK_INICIAL;
@@ -44,9 +44,7 @@ public class Mundo {
         int medicinaX = random.nextInt(MUNDO_ANCHO);
         int medicinaY = random.nextInt(MUNDO_ALTO);
 
-        while (true) {
-            if (campos[virusX][virusY] == false)
-                break;
+        while (campos[virusX][virusY]) {
             virusX += 1;
             if (virusX >= MUNDO_ANCHO) {
                 virusX = 0;
@@ -57,9 +55,7 @@ public class Mundo {
             }
         }
 
-        while (true) {
-            if (campos[medicinaX][medicinaY] == false)
-                break;
+        while (campos[medicinaX][medicinaY]) {
             medicinaX += 1;
             if (medicinaX >= MUNDO_ANCHO) {
                 medicinaX = 0;
