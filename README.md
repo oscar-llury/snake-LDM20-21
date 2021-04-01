@@ -4,7 +4,7 @@
 
 Project developed as an assignment for Mobile Application Development subject, Software Engineering degree. Rey Juan Carlos University 2020/2021
 
-Development off a simple Snake game.
+Development of a simple Snake game.
 
 Download and install Virusnake app in your phone via [APK](Virusnake.apk).
 
